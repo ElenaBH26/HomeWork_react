@@ -1,7 +1,7 @@
 import React from 'react';
 import './TariffCard.css'
 
-function TariffCards({title, price, speed, footer, headerColor, bodyColor, isHighlighted}) {
+function TariffCards({title, price, speed, footer, headerColor, bodyColor, isHighlighted, onSelect}) {
 
     const headerStyle = {
         backgroundColor: headerColor,
@@ -13,10 +13,14 @@ function TariffCards({title, price, speed, footer, headerColor, bodyColor, isHig
         color: 'white'
     };
 
+    const handleCardClick = () => {
+        onSelect(title);
+    }
+
     
 
     return (
-        <div className= {`tariff-card ${isHighlighted ? 'highlighted' : ''}`}>
+        <div className= {`tariff-card ${isHighlighted ? 'highlighted' : ''}`} onClick={handleCardClick}>
             <div className='tariff-header' style={headerStyle}>
                 <h3>{title}</h3>
             </div>
